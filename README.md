@@ -1,8 +1,8 @@
-# Template GitHub Repository for EpiPandit Lab
-## Quantitative veterinary epidemiology and disease ecology lab
+# MPM 200 GitHub Assignment Repository
+## Introduction to Information Management for Epidemiologists - Session 8
 ==============================
 
-Text summarizing your project.
+R Markdown code provides descriptive statistics on hummingbird rehabilitation data from California facilities from an example data set for teaching purposes for MPM 200. A summary table and bar chart are generated for univariate assessment of admission to rehabilitation centers. A summary table and bar charts are generated for multivariate assessment of receiving first aid (F_Aid), age (Age_e), sex (Sex_e), season of admission (season), and reason for admission (r) on hummingbird dispositions. Subjects are sorted into broader taxonomic groups from Species_e data into a new Species_Group column. Timeplots of hummingbird admissions by month/year and by year are generated.
 
 ## Project Organization
 ------------
