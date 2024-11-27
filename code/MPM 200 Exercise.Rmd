@@ -281,4 +281,19 @@ p_month_species = ggplot(genus_by_month, aes(x = Admitted_month, y = count, fill
 
 p_month_species
 ```
+# NEW Code from Pranav: Running a full model and model selection
+## Perform backward elimination to select a good fitting model for predicting the logit of the probability of survival starting from the model which contains all five predictors that you selected in the previous question. Use the `step` function to achieve the selection. We will go through model selection in detail in upcoming classes. So, do not worry about it for now, but this is one of the methods to select the best model by dropping individual covariates.
+```{r}
+fullmodel  = glm(Disposition_binary ~ r + Green_Orange + season+F_Aid+Species_e, data = model_data, family= binomial(link = logit))
+fullmodel
 
+```
+```{r}
+backward_model = step(fullmodel,k=2,direction = "backward",test="Chisq")
+```
+```{r}
+forward_model = step(fullmodel,k=2,direction = ,test="Chisq")
+```
+### Can you describe the best fitting model: covariates in models selected by forward and backward selection process?
+#### Find the covariate with the highest Odds for survival
+### Did both the models have the same measures of effects for covariates?
