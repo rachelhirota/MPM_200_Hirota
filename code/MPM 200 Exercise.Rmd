@@ -137,7 +137,7 @@ age_plot + facet_grid(. ~ Age_e)+ coord_flip()
 
 ### Died:released ratio of hummingbirds is extremely different between nestlings and adult-like birds on both the table and bar charts. Thus, it seems likely that age at intake is associated with final disposition of the hummingbird on initial exploratory data analysis.
 
-### Days until brought to rehab as covariate
+### Sex to rehab as covariate
 sex = model_data  %>% 
   group_by(Sex_e, Disposition_binary)%>% 
   summarise(count = n_distinct(ID))
@@ -260,5 +260,25 @@ p_year = ggplot(admissions_by_year, aes(x = Admitted_year, y = count)) +
   labs(title = "Hummingbird admissions by year (1991-2016)")
 
 p_year
+```
+
+# SESSION 8 - PART 3
+```{r}
+## STEP 7. Update your code to create a timeline plot of monthly hummingbird admissions. Differentiate between species groups using the Species_group column.
+
+genus_by_month = model_data %>%
+  mutate(Admitted_month = format(Admitted_date, "%Y-%m")) %>%
+  group_by(Admitted_month, Species_group) %>%
+  summarise(count = n_distinct(ID))
+
+genus_by_month
+
+p_month_species = ggplot(genus_by_month, aes(x = Admitted_month, y = count, fill = Species_group)) +
+  geom_bar(position = "dodge", stat = "identity") +
+  xlab("Month and year of admission") +
+  ylab("Number of hummingbirds") +
+  labs(title = "Selaphorus and non-selaphorus hummingbird admissions by month and year")
+
+p_month_species
 ```
 
